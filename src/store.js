@@ -18,9 +18,12 @@ export default new Vuex.Store({
 
   },
   mutations: {
-    setPlayerHand(){},
-    setTargetHand(){},
-    setGame(){}
+    setPlayerHand(state, playerHand){},
+    setTargetHand(state, targetHand){},
+    setGame(state, game){
+      state.game = game
+      router.push({gameId: game.id})
+    }
   },
   actions: {
     startGame({commit, dispatch}, gameConfig){

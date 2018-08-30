@@ -1,5 +1,9 @@
 <template>
   <div class="players">
+     <div class="loading"></div>
+      <div class="playerHand" >
+        {{players.name}}
+      </div>
   </div>
 </template>
 
@@ -10,6 +14,9 @@ export default {
   computed: {
   },
   methods: {
+    setPlayerHand(hand){
+      this.$store.dispatch("setPlayerHand", hand)
+    }
   }
 };
 </script>

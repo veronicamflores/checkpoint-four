@@ -21,6 +21,14 @@ export default {
             playerName:""
         }
     },
+    computed:{
+        playerHand(){
+            return this.$store.state.PlayerHand
+        },
+        targetHand(){
+            return this.$store.state.TargetHand
+        }
+    },
     methods:{
         startGame(){
         let gameConfig = {
