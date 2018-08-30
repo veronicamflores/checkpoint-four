@@ -19,8 +19,8 @@
     </div>
 </template>
 <script>
-import Player from "@/components/Player"
-import Target from "@/components/Target"
+import PlayerHand from '@/components/PlayerHand'
+import TargetHand from '@/components/TargetHand'
 export default {
     
 }

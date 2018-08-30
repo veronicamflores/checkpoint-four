@@ -13,17 +13,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     game:{},
-    player:[],
-    target:[],
-    targets:{},
-    players:{}
+    playerHand:{},
+    targetHand:{},
 
   },
   mutations: {
-    setPlayers(){},
-    setPlayer(){},
-    setTargets(){},
-    setTarget(){},
+    setPlayerHand(){},
+    setTargetHand(){},
     setGame(){}
   },
   actions: {
@@ -34,10 +30,16 @@ export default new Vuex.Store({
       })
     },
     startGame({commit, dispatch}, gameConfig){
-      gameApi.post('cards',{ playerId: gameConfig.player.id, targetId: gameConfig.target.id } )
+      gameApi.post('cards',{} )
       .then(res=>{
         commit('setGame', res.data.game)
       })
+    },
+    getPlayerHand(){
+
+    },
+    getTargetHand(){
+      
     }
   }
 })
