@@ -15,9 +15,20 @@
 import PlayerHand from "@/components/PlayerHand";
 import TargetHand from "@/components/TargetHand";
 export default {
+    name: 'game',
+    data(){
+        return{
+            playerName:""
+        }
+    },
     methods:{
         startGame(){
-        this.$store.dispatch(this.PlayerHand);
+        let gameConfig = {
+            playerName: this.playerName,
+            opponents : 1,
+            set: 2
+        }
+        this.$store.dispatch('startGame', gameConfig)
         }
     },
     components:{

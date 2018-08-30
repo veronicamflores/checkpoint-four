@@ -23,8 +23,13 @@ export default new Vuex.Store({
     setGame(){}
   },
   actions: {
+    startGame({commit, dispatch}, gameConfig){
+      gameApi.post('', {})
+      .then(res=>{
+        commit('setGame', res.data.game )
+      })
+    },
     getGame(){},
-    startGame(){},
     getPlayerHand(){},
     getTargetHand(){}
   }
