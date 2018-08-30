@@ -1,27 +1,27 @@
 <template>
     <div class="game">
-        <form @sumbit="game">
-            <label for=""></label>
-            <input type="text" v-model="playerName"/>
-            <button type="submit">Sumbit</button>
-        </form>
         <div class="game-config">
-            <div class="selected-player"></div>
-            <div>
-                <button @click="startGame"></button>
-            </div>
-            <div class="selected-target"></div>
+            <form @sumbit.prevent="startGame">
+                <input type="text" v-model="playerName" placeholder="Give Yourself A Name"/>
+                <button type="submit">Sumbit</button>
+            </form>
         </div>
-        <div class="select-game-details">
-            <targets/>
-            <players/>
-        </div>
+        <div></div>
+        <div></div>
     </div>
 </template>
+
 <script>
-import PlayerHand from '@/components/PlayerHand'
-import TargetHand from '@/components/TargetHand'
+import PlayerHand from "@/components/PlayerHand";
+import TargetHand from "@/components/TargetHand";
 export default {
-    
-}
+    methods:{
+        startGame(){
+        this.$store.dispatch(this.PlayerHand);
+        }
+    },
+    components:{
+
+    }
+};
 </script>
