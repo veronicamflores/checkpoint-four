@@ -18,8 +18,12 @@ export default new Vuex.Store({
 
   },
   mutations: {
-    setPlayerHand(state, playerHand){},
-    setTargetHand(state, targetHand){},
+    setPlayerHand(state, playerHand){
+      state.playerHand = playerHand
+    },
+    setTargetHand(state, targetHand){
+      state.targetHand = targetHand
+    },
     setGame(state, game){
       state.game = game
       router.push({gameId: game.id})
@@ -27,13 +31,22 @@ export default new Vuex.Store({
   },
   actions: {
     startGame({commit, dispatch}, gameConfig){
-      gameApi.post('', {})
+      gameApi.post('', gameConfig )
       .then(res=>{
-        commit('setGame', res.data.game )
+        commit('setGame', res.data.results)
       })
     },
-    getGame(){},
-    getPlayerHand(){},
-    getTargetHand(){}
+    getTargetHand({commit, dispatch}){
+      gameApi.get('/:gameId')
+      .then(res=>{
+        commit('setTargetHand', res.data.players[1])
+      })
+    },
+    getPlayerHand({commit, dispatch}){
+      gameApi.get('/:gameId')
+      .then(res=>{
+        commit('setPlayerHand', res.data.players[0])
+      })
+    },
   }
 })
