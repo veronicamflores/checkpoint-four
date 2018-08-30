@@ -21,7 +21,8 @@ export default {
         }
     },
     components:{
-
+        PlayerHand,
+        TargetHand
     }
 };
 </script>

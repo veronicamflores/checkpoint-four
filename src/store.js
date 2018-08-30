@@ -23,23 +23,9 @@ export default new Vuex.Store({
     setGame(){}
   },
   actions: {
-    getGame({commit, dispatch}, gameId){
-      gameApi.get('cards/' +gameId)
-      .then(res=>{
-        commit('setGame', res.data)
-      })
-    },
-    startGame({commit, dispatch}, gameConfig){
-      gameApi.post('cards',{} )
-      .then(res=>{
-        commit('setGame', res.data.game)
-      })
-    },
-    getPlayerHand(){
-
-    },
-    getTargetHand(){
-      
-    }
+    getGame(){},
+    startGame(){},
+    getPlayerHand(){},
+    getTargetHand(){}
   }
 })
