@@ -42,8 +42,8 @@ export default new Vuex.Store({
       })
     },
 
-    getHand({commit, dispatch}){
-      gameApi.get('/:gameId')
+    getHand({commit, dispatch}, gameId){
+      gameApi.get('/', gameId)
       .then(res=>{
         commit('setHand', res.data.players)
       })

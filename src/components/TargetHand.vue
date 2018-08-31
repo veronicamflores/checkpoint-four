@@ -1,6 +1,6 @@
 <template>
   <div class="target-hand">
-     <div v-for="hand in targetHand.hand" :key="hand.id" @click="setTargetHand(hand)">
+     <div v-for="hand in targetHand.hand" :key="hand.id" @click="setTargetHand(key)">
         <img :src="hand.img" alt=""/>
         <h3>Health: {{hand.health}}</h3>
         <h3>Attack: {{hand.attack}}</h3>
