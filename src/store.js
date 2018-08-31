@@ -18,9 +18,9 @@ export default new Vuex.Store({
 
   },
   mutations: {
-    setPlayerHand(state, hand){
-      state.playerHand = hand[0]
-      state.targetHand = hand[1]
+    setHand(state, hand){
+      state.playerHand = hand.players[0]
+      state.targetHand = hand.players[1]
     },
 
     setGame(state, game){
@@ -45,8 +45,9 @@ export default new Vuex.Store({
     getHand({commit, dispatch}, gameId){
       gameApi.get('/', gameId)
       .then(res=>{
-        commit('setHand', res.data.players)
+        commit('setHand', res.data)
       })
     }
+
   }
 })

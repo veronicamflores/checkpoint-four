@@ -1,6 +1,6 @@
 <template>
   <div class="target-hand">
-     <div v-for="hand in targetHand.hand" :key="hand.id" @click="setTargetHand(key)">
+     <div v-for="hand in targetHand.hand" :key="hand.id">
         <img :src="hand.img" alt=""/>
         <h3>Health: {{hand.health}}</h3>
         <h3>Attack: {{hand.attack}}</h3>
@@ -20,8 +20,8 @@ export default {
         }
   },
   methods: {
-     setTargetHand(hand){
-      this.$store.dispatch("setHand", hand)
+     setTargetHand(){
+      this.$store.dispatch("setHand", gameId)
     }
   }
 };
