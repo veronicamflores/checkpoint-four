@@ -6,7 +6,10 @@
                 <button type="submit">Sumbit</button>
             </form>
         </div>
-        <div></div>
+        <div>
+            <PlayerHand></PlayerHand>
+            <TargetHand></TargetHand>
+        </div>
         <div></div>
     </div>
 </template>

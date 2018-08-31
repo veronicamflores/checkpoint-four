@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name:'TargetHand',
   mounted() {
       this.$store.dispatch("getTargetHand");
   },
