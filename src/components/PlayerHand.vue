@@ -1,19 +1,18 @@
 <template>
-  <div class="players">
-      <div class="playerHand" v-for="hand in players[0].hand" :key="hand.id" @click="setPlayerHand(playerHand)">
+  <div class="player-hand">
+      <div v-for="hand in playerHand.hand" :key="hand.id" @click="setPlayerHand(hand)">
         <img :src="hand.img" alt=""/>
         <h3>Health: {{hand.health}}</h3>
         <h3>Attack: {{hand.attack}}</h3>
       </div>
-      <h1>{{strName}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PlayerHand',
+  name: 'playerHand',
   mounted() {
-    this.$store.dispatch("getPlayerHand");
+    this.$store.dispatch("getHand");
   },
   computed: {
     playerHand() {
@@ -21,8 +20,8 @@ export default {
     }
   },
   methods: {
-    setPlayerHand(playerHand){
-      this.$store.dispatch("setPlayerHand", hand)
+    setPlayerHand(hand){
+      this.$store.dispatch("setHand", hand)
     }
   }
 };

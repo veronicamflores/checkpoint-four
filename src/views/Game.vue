@@ -1,9 +1,9 @@
 <template>
     <div class="game">
         <div class="game-config">
-            <form @sumbit.prevent="startGame">
+            <form >
                 <input type="text" v-model="playerName" placeholder="Give Yourself A Name"/>
-                <button type="submit">Sumbit</button>
+                <button @click="startGame">Start Game</button>
             </form>
         </div>
         <div>
@@ -22,14 +22,6 @@ export default {
     data(){
         return{
             playerName:""
-        }
-    },
-    computed:{
-        playerHand(){
-            return this.$store.state.PlayerHand
-        },
-        targetHand(){
-            return this.$store.state.TargetHand
         }
     },
     methods:{
