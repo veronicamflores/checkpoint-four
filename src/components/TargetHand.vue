@@ -1,27 +1,29 @@
 <template>
   <div class="target-hand">
-     <div v-for="hand in targetHand.hand" :key="hand.id">
-        <img :src="hand.img" alt=""/>
-        <h3>Health: {{hand.health}}</h3>
-        <h3>Attack: {{hand.attack}}</h3>
-      </div>
+    <div>Test: {{targetHand}}</div>  
+    <!-- <div v-for="hand in targetHand" :key="hand.id">
+      <img :src="hand.img" alt=""/>
+      <h3>Health: {{hand.health}}</h3>
+      <h3>Attack: {{hand.attack}}</h3>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
-  name:'targetHand',
-  mounted() {
-      this.$store.dispatch("getHand");
+  name:'TargetHand',
+  mounted(){
+    return this.$store.state.targetHand
   },
-  computed: {
+  computed:{
      targetHand(){
-            return this.$store.state.targetHand
-        }
+        return this.$store.state.targetHand
+     }
   },
-  methods: {
-     setTargetHand(){
-      this.$store.dispatch("setHand", gameId)
+  methods:{
+    getTargetHand(){
+      let gameId = this.$store.state.game.gameId
+     this.$store.dispatch('getTargetHand', gameId)
     }
   }
 };

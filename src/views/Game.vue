@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="my-game">
             <PlayerHand></PlayerHand>
             <TargetHand></TargetHand>
         </div>
