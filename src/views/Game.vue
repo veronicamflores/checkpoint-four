@@ -17,6 +17,7 @@
 <script>
 import PlayerHand from "@/components/PlayerHand";
 import TargetHand from "@/components/TargetHand";
+
 export default {
     name: 'game',
     data(){
