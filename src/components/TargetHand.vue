@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="card" v-else @click="activeHand(targetHand)">
-          <img src="" alt="">
+          <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" alt="card backs">
       </div>
     </div>
   </div>
