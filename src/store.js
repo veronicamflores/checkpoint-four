@@ -38,7 +38,7 @@ export default new Vuex.Store({
     getGame({commit, dispatch}, gameId){
       gameApi.get('/' + gameId)
       .then(res=>{
-        commit('setGame', res.data)
+        commit('setGame', res.data.data)
       })
     },
     setTargetHand({commit, dispatch}, hand){
