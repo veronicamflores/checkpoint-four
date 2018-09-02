@@ -13,11 +13,12 @@
                 </div>
             </div>
         </div>
-        <div class="my-game">
+        <div>
             <PlayerHand></PlayerHand>
             <TargetHand></TargetHand>
         </div>
-        <div></div>
+           
+           
     </div>
 </template>
 

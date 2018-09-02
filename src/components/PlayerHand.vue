@@ -1,10 +1,13 @@
 <template>
-  <div class="player-hand">
-      <div> Test: {{playerHand}}</div> 
-      <div v-for="hand in playerHand.hand" :key="hand.id">
-      <img :src="Hand.img" alt=""/>
-      <h3>Health: {{Hand.health}}</h3>
-      <h3>Attack: {{Hand.attack}}</h3>
+  <div class="player-hand row" >
+      <div v-for="hand in playerHand.hand" :key="hand.id" class="col-3">
+        <div class="card">
+          <img :src="hand.img" class="card-img-top" alt=""/>
+          <div class="card-body">
+            <h3>Health: {{hand.health}}</h3>
+            <h3>Attack: {{hand.attack}}</h3>
+          </div>
+        </div>
     </div>
   </div>
 </template>
