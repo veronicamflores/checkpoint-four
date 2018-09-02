@@ -35,23 +35,22 @@ export default new Vuex.Store({
         commit('setGame', res.data)
       })
     },
-
     getGame({commit, dispatch}, gameId){
       gameApi.get('/' + gameId)
       .then(res=>{
         commit('setGame', res.data)
       })
     },
-    getTargetHand({commit, dispatch}, gameId){
-      gameApi.get('/', gameId)
-      .then(res=>{
-        commit('setTargetHand', res.data.players)
-      })
+    setTargetHand({commit, dispatch}, hand){
+      commit('setTargetHand', hand)
     },
-    getPlayerHand({commit, dispatch}, gameId){
-      gameApi.get('/', gameId)
+    setPlayerHand({commit, dispatch}, hand){
+      commit('setPlayerHand', hand )
+    },
+    attack({commit, dispatch}, attack){
+      gameApi.put('/' + state.game.id, attack)
       .then(res=>{
-        commit('setPlayerHand', res.data.players)
+        dispatch('getGame', state.game.id)
       })
     }
   }

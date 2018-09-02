@@ -4,12 +4,12 @@
             <div class="col">
                 <form class="form-inline" @submit.prevent="startGame">
                     <div class="form-group mb-1 mt-1">
-                        <input class="form-control" type="text" v-model="playerName" placeholder="Give Yourself A Name"/>
-                        <button class="btn mb-1 mt-1" type="sumbit">Make A New Game!</button> 
+                        <input type="text" v-model="playerName" placeholder="Give Yourself A Name" class="form-control"/>
+                        <button type="sumbit" class="btn mb-1 mt-1" >Make A New Game!</button> 
                     </div>  
                 </form>
                 <div v-if="playerName">
-                    <button class="btn" @click="getGame">Start Game</button>
+                    <button @click="getGame"  class="btn">Start Game</button>
                 </div>
             </div>
         </div>
@@ -28,11 +28,10 @@ import TargetHand from "@/components/TargetHand";
 export default {
     name: 'game',
     game(){
-        return 
-
+        return
     },
     data(){
-        return{
+        return {
             playerName:""
         }
     },
@@ -44,7 +43,7 @@ export default {
         startGame(){
         let gameConfig = {
             playerName: this.playerName,
-            opponents : 1,
+            opponents: 1,
             set: 2
         }
         this.$store.dispatch('startGame', gameConfig)
