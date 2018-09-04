@@ -84,3 +84,13 @@ export default {
     }
 };
 </script>
+<style>
+.game{
+    background-image: url('../assets/battleground_plunder__by_abarai_kun-d6w3smn.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+    width:auto;
+    height: 100vh;
+}
+</style>
