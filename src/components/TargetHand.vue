@@ -1,8 +1,8 @@
 <template>
   <div class="target-hand row"> 
     <div class="col-12"><h1>{{targetHand.name}}</h1></div>
-    <div v-for="hand in targetHand" :key="hand.id" class="col-3">
-      <div class="card" v-if="targetActiveHand.id == targetHand.id">
+    <div v-for="hand in targetHand" :key="hand.id" class="col-4">
+      <div class="card" v-if="targetActiveHand.id == hand.id">
         <img :src="hand.img" alt="" class="card-img-top"/>
         <div class="card-body">
           <h2>Card Name: {{hand.name}}</h2>
@@ -32,8 +32,8 @@ export default {
      }
   },
    methods:{
-     activeHand(targetHand){
-       this.$store.dispatch('setTargetHand', targetHand)
+     activeHand(hand){
+       this.$store.dispatch('setTargetHand', hand)
      }
    }
 };

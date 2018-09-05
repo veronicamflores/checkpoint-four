@@ -1,7 +1,10 @@
 <template>
     <div class="game container-fluid">
         <div class="game-config row">
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-center">
+                <h1>LET'S PLAY A GAME</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
                 <form class="form-inline" @submit.prevent="startGame">
                     <div class="form-group mb-1 mt-1">
                         <input type="text" v-model="playerName" placeholder="Give Yourself A Name" class="form-control"/>
@@ -19,7 +22,7 @@
         </div>
             <PlayerHand v-if="!game.winner"></PlayerHand>
             <div class="col-12" v-if="!game.winner">
-                <button class="btn" v-if="playerHand.id && targetHand.id" @click="attack">ATTACK</button>
+                <button class="btn" v-if="player.id && target.id" @click="attack">ATTACK</button>
             </div>
             <TargetHand v-if="!game.winner"></TargetHand>
     </div>
@@ -42,16 +45,16 @@ export default {
         game(){
             return this.$store.state.game
         },
-        targetHand(){
+        target(){
             return this.$store.state.targetHand
         },
-        playerHand(){
+        player(){
             return this.$store.state.playerHand
         },
-        player(){
+        playerInformation(){
             return this.$store.state.game.players[0]
         },
-        target(){
+        targetInformation(){
             return this.$store.state.game.players[1]
         }
     },
@@ -70,10 +73,10 @@ export default {
         },
         attack(){
             let attack = {
-                playerId: this.player.id,
-                playerHandId: this.playerHand.id,
-                targetId: this.target.id,
-                targetHandId: this.targetHand.id
+                playerId: this.playerInformation.id,
+                playerHandId: this.player.id,
+                targetId: this.targetInformation.id,
+                targetHandId: this.target.id
             }
             this.$store.dispatch('attack', attack)
         }
@@ -85,12 +88,4 @@ export default {
 };
 </script>
 <style>
-.game{
-    background-color: green;
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size:cover;
-    width:auto;
-    height: 100vh;
-}
 </style>
