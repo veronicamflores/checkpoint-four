@@ -41,10 +41,10 @@ export default new Vuex.Store({
         commit('setGame', res.data.data)
       })
     },
-    setTargetHand({commit, dispatch}, hand){
+    changeTargetHand({commit, dispatch}, hand){
       commit('setTargetHand', hand)
     },
-    setPlayerHand({commit, dispatch}, hand){
+    changePlayerHand({commit, dispatch}, hand){
       commit('setPlayerHand', hand )
     },
     attack({commit, dispatch}, attack){

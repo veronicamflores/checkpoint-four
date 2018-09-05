@@ -12,9 +12,6 @@
                     </div>  
                 </form>
             </div>
-            <div v-if="playerName" class="col-12 mt-2">
-                <button @click="getGame"  class="btn">Start Game</button>
-            </div>
             <div class="col-12" v-if="game.winner">
                 <h1>THE WINNER IS ...</h1>
                 {{game.winner.name}}
@@ -52,17 +49,17 @@ export default {
             return this.$store.state.playerHand
         },
         playerInformation(){
-            return this.$store.state.game.players[0]
+            if(this.$store.state.game.id){
+                return this.$store.state.game.players[0]
+        }
         },
         targetInformation(){
-            return this.$store.state.game.players[1]
+          if(this.$store.state.game.id){
+                return this.$store.state.game.players[1]
+        }
         }
     },
     methods:{
-        getGame(){
-            let gameId = this.$store.state.game.id
-            this.$store.dispatch("getGame", gameId)
-        },
         startGame(){
         let gameConfig = {
             playerName: this.playerName,
@@ -85,7 +82,7 @@ export default {
         PlayerHand,
         TargetHand
     }
-};
+}
 </script>
 <style>
 </style>

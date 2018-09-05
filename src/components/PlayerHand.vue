@@ -32,7 +32,7 @@ export default {
   },
   methods:{
     activeHand(hand){
-      this.$store.dispatch('setPlayerHand', hand)
+      this.$store.dispatch('changePlayerHand', hand)
     }
   }
  

@@ -1,7 +1,9 @@
 <template>
   <div class="target-hand row"> 
     <div class="col-12"><h1>{{targetHand.name}}</h1></div>
+
     <div v-for="hand in targetHand" :key="hand.id" class="col-4">
+
       <div class="card" v-if="targetActiveHand.id == hand.id">
         <img :src="hand.img" alt="" class="card-img-top"/>
         <div class="card-body">
@@ -10,9 +12,11 @@
           <h3>Attack: {{hand.attack}}</h3>
         </div>
       </div>
+
       <div class="card" v-else @click="activeHand(hand)">
           <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" alt="card backs">
       </div>
+      
     </div>
   </div>
 </template>
@@ -33,7 +37,7 @@ export default {
   },
    methods:{
      activeHand(hand){
-       this.$store.dispatch('setTargetHand', hand)
+       this.$store.dispatch('changeTargetHand', hand)
      }
    }
 };
