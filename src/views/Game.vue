@@ -1,10 +1,10 @@
 <template>
-    <div class="game container-fluid">
+    <div class="game container">
         <div class="game-config row">
             <div class="col-12 d-flex justify-content-center">
                 <h1>LET'S PLAY A GAME</h1>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center" v-if(!game.winner)>
                 <form class="form-inline" @submit.prevent="startGame">
                     <div class="form-group mb-1 mt-1">
                         <input type="text" v-model="playerName" placeholder="Give Yourself A Name" class="form-control"/>
@@ -16,12 +16,12 @@
                 <h1>THE WINNER IS ...</h1>
                 {{game.winner.name}}
             </div>
-        </div>
             <PlayerHand v-if="!game.winner"></PlayerHand>
-            <div class="col-12" v-if="!game.winner">
+            <div class="col-12 mb-2 mt-2" v-if="!game.winner">
                 <button class="btn" v-if="player.id && target.id" @click="attack">ATTACK</button>
             </div>
             <TargetHand v-if="!game.winner"></TargetHand>
+        </div>
     </div>
 </template>
 
@@ -71,9 +71,9 @@ export default {
         attack(){
             let attack = {
                 playerId: this.playerInformation.id,
-                playerHandId: this.player.id,
-                targetId: this.targetInformation.id,
-                targetHandId: this.target.id
+                playerCardId: this.player.id,
+                opponentId: this.targetInformation.id,
+                opponentCardId: this.target.id
             }
             this.$store.dispatch('attack', attack)
         }

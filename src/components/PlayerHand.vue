@@ -3,13 +3,13 @@
       <div class="col-12">
         <h1>{{playerHand.name}}</h1>
       </div>
-      <div v-for="hand in playerHand.hand" :key="hand.id" class="col-4">
+      <div v-for="hand in playerHand.hand" :key="hand.id" class="col">
         <div class="card" @click="activeHand(hand)">
           <img :src="hand.img" class="card-img-top" alt=""/>
           <div class="card-body">
-            <h2>Card Name: {{hand.name}}</h2>
-            <h3>Health: {{hand.health}}</h3>
-            <h3>Attack: {{hand.attack}}</h3>
+            <h6>Card Name: {{hand.name}}</h6>
+            <p>Health: {{hand.health}}</p>
+            <p>Attack: {{hand.attack}}</p>
           </div>
         </div>
     </div>

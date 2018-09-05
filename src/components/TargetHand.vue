@@ -2,10 +2,10 @@
   <div class="target-hand row"> 
     <div class="col-12"><h1>{{target.name}}</h1></div>
 
-    <div v-for="card in target.hand" :key="card.id" class="col-4">
+    <div v-for="card in target.hand" :key="card.id" class="col">
 
       <div class="card active" @click="activeHand(card)" v-if="card.visible">
-        <img :src="card.img" alt="" class="card-img-top"/>
+        <img :src="card.img" alt="" class="card-img-top img-fluid"/>
         <div class="card-body">
           <h2>Card Name: {{card.name}}</h2>
           <h3>Health: {{card.health}}</h3>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="card" v-else @click="activeHand(card)">
-          <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" alt="card backs">
+          <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" class="img-fluid" alt="card backs">
       </div>
 
     </div>
