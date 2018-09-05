@@ -47,7 +47,7 @@ export default new Vuex.Store({
     changePlayerHand({commit, dispatch}, hand){
       commit('setPlayerHand', hand )
     },
-    attack({commit, dispatch}, attack){
+    attack({commit, dispatch, state}, attack){
       gameApi.put('/' + state.game.id, attack)
       .then(res=>{
         dispatch('getGame', state.game.id)

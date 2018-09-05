@@ -1,22 +1,22 @@
 <template>
   <div class="target-hand row"> 
-    <div class="col-12"><h1>{{targetHand.name}}</h1></div>
+    <div class="col-12"><h1>{{target.name}}</h1></div>
 
-    <div v-for="hand in targetHand" :key="hand.id" class="col-4">
+    <div v-for="card in target.hand" :key="card.id" class="col-4">
 
-      <div class="card" v-if="targetActiveHand.id == hand.id">
-        <img :src="hand.img" alt="" class="card-img-top"/>
+      <div class="card active" @click="activeHand(card)" v-if="card.visible">
+        <img :src="card.img" alt="" class="card-img-top"/>
         <div class="card-body">
-          <h2>Card Name: {{hand.name}}</h2>
-          <h3>Health: {{hand.health}}</h3>
-          <h3>Attack: {{hand.attack}}</h3>
+          <h2>Card Name: {{card.name}}</h2>
+          <h3>Health: {{card.health}}</h3>
+          <h3>Attack: {{card.attack}}</h3>
         </div>
       </div>
 
-      <div class="card" v-else @click="activeHand(hand)">
+      <div class="card" v-else @click="activeHand(card)">
           <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" alt="card backs">
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -25,19 +25,20 @@
 export default {
   name:'TargetHand',
   computed:{
-     targetHand(){
+     target(){
         if(this.$store.state.game.id){
         return this.$store.state.game.players[1]
         }
         return {}
      },
-     targetActiveHand(){
+     targetActiveCard(){
        return this.$store.state.targetHand
      }
   },
    methods:{
-     activeHand(hand){
-       this.$store.dispatch('changeTargetHand', hand)
+     activeHand(card){
+       debugger
+       this.$store.dispatch('changeTargetHand', card)
      }
    }
 };
