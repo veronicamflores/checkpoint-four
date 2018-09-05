@@ -86,7 +86,7 @@ export default {
 </script>
 <style>
 .game{
-    background-image: url('../assets/battleground_plunder__by_abarai_kun-d6w3smn.jpg');
+    background-color: green;
     background-repeat: no-repeat;
     background-position:center;
     background-size:cover;

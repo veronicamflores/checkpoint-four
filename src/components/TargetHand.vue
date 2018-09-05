@@ -10,7 +10,7 @@
           <h3>Attack: {{hand.attack}}</h3>
         </div>
       </div>
-      <div class="card" v-else @click="activeHand(targetHand)">
+      <div class="card" v-else @click="activeHand(hand)">
           <img src="..//assets/AAAADEnelREAAAAAAM6-JASMALL.preview.jpg" alt="card backs">
       </div>
     </div>
